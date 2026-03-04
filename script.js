@@ -694,7 +694,6 @@ This is a fully client-side application. Your content never leaves your browser 
   mobileExportHtml.addEventListener("click", () => exportHtml.click());
   mobileExportPdf.addEventListener("click", () => exportPdf.click());
   mobileCopyMarkdown.addEventListener("click", () => copyMarkdownButton.click());
-  mobileShareButton.addEventListener("click", () => shareButton.click());
   mobileThemeToggle.addEventListener("click", () => {
     themeToggle.click();
     mobileThemeToggle.innerHTML = themeToggle.innerHTML + " Toggle Dark Mode";
@@ -1552,7 +1551,7 @@ This is a fully client-side application. Your content never leaves your browser 
     return new TextDecoder().decode(pako.inflate(bytes));
   }
 
-  shareButton.addEventListener("click", function () {
+  function copyShareUrl(btn) {
     const markdownText = markdownEditor.value;
     let encoded;
     try {
@@ -1564,27 +1563,40 @@ This is a fully client-side application. Your content never leaves your browser 
     }
 
     const shareUrl = window.location.origin + window.location.pathname + '#share=' + encoded;
-    if (shareUrl.length > MAX_SHARE_URL_LENGTH) {
-      alert("The document is too large to share via URL. Please reduce content size and try again.");
-      return;
+    const tooLarge = shareUrl.length > MAX_SHARE_URL_LENGTH;
+
+    const originalHTML = btn.innerHTML;
+    const copiedHTML = '<i class="bi bi-check-lg"></i> Copied!';
+
+    function onCopied() {
+      if (!tooLarge) {
+        window.location.hash = 'share=' + encoded;
+      }
+      btn.innerHTML = copiedHTML;
+      setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
     }
 
-    window.location.hash = 'share=' + encoded;
-
-    const originalText = shareButton.innerHTML;
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(shareUrl).then(() => {
-        shareButton.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
-        setTimeout(() => { shareButton.innerHTML = originalText; }, 2000);
-      }).catch(() => {
-        shareButton.innerHTML = '<i class="bi bi-link-45deg"></i> Linked!';
-        setTimeout(() => { shareButton.innerHTML = originalText; }, 2000);
+      navigator.clipboard.writeText(shareUrl).then(onCopied).catch(() => {
+        // clipboard.writeText failed; nothing further to do in secure context
       });
     } else {
-      shareButton.innerHTML = '<i class="bi bi-link-45deg"></i> Linked!';
-      setTimeout(() => { shareButton.innerHTML = originalText; }, 2000);
+      try {
+        const tempInput = document.createElement("textarea");
+        tempInput.value = shareUrl;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        onCopied();
+      } catch (_) {
+        // copy failed silently
+      }
     }
-  });
+  }
+
+  shareButton.addEventListener("click", function () { copyShareUrl(shareButton); });
+  mobileShareButton.addEventListener("click", function () { copyShareUrl(mobileShareButton); });
 
   function loadFromShareHash() {
     if (typeof pako === 'undefined') return;
