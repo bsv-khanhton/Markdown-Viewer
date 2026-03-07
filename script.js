@@ -121,11 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
   marked.setOptions({
     ...markedOptions,
     renderer: renderer,
-    highlight: function (code, language) {
-      if (language === 'mermaid') return code;
-      const validLanguage = hljs.getLanguage(language) ? language : "plaintext";
-      return hljs.highlight(code, { language: validLanguage }).value;
-    },
   });
 
   const sampleMarkdown = `# Welcome to Markdown Viewer
@@ -145,10 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const sanitizedHtml = DOMPurify.sanitize(html);
     markdownPreview.innerHTML = sanitizedHtml;
     
-    // Apply syntax highlighting to code blocks
-    markdownPreview.querySelectorAll('pre code').forEach((block) => {
-        hljs.highlightElement(block);
-    });
+    // Syntax highlighting is handled automatically
+    // during the parsing phase by the marked renderer.
+    // Themes are applied instantly via CSS variables.
   }
 \`\`\`
 
@@ -301,16 +295,6 @@ This is a fully client-side application. Your content never leaves your browser 
         ADD_ATTR: ['id', 'class', 'style']
       });
       markdownPreview.innerHTML = sanitizedHtml;
-
-      markdownPreview.querySelectorAll("pre code").forEach((block) => {
-        try {
-          if (!block.classList.contains('mermaid') && !block.classList.contains('hljs')) {
-            hljs.highlightElement(block);
-          }
-        } catch (e) {
-          console.warn("Syntax highlighting failed for a code block:", e);
-        }
-      });
 
       processEmojis(markdownPreview);
       
@@ -813,9 +797,6 @@ This is a fully client-side application. Your content never leaves your browser 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Markdown Export</title>
   <link rel="stylesheet" href="${cssTheme}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/${
-    isDarkTheme ? "github-dark" : "github"
-  }.min.css">
   <style>
       body {
           background-color: ${isDarkTheme ? "#0d1117" : "#ffffff"};
@@ -830,6 +811,23 @@ This is a fully client-side application. Your content never leaves your browser 
           background-color: ${isDarkTheme ? "#0d1117" : "#ffffff"};
           color: ${isDarkTheme ? "#c9d1d9" : "#24292e"};
       }
+
+      /* Syntax Highlighting */
+      .hljs-doctag, .hljs-keyword, .hljs-template-tag, .hljs-template-variable, .hljs-type, .hljs-variable.language_ { color: ${isDarkTheme ? "#ff7b72" : "#d73a49"}; }
+      .hljs-title, .hljs-title.class_, .hljs-title.class_.inherited__, .hljs-title.function_ { color: ${isDarkTheme ? "#d2a8ff" : "#6f42c1"}; }
+      .hljs-attr, .hljs-attribute, .hljs-literal, .hljs-meta, .hljs-number, .hljs-operator, .hljs-variable, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-id { color: ${isDarkTheme ? "#79c0ff" : "#005cc5"}; }
+      .hljs-regexp, .hljs-string, .hljs-meta .hljs-string { color: ${isDarkTheme ? "#a5d6ff" : "#032f62"}; }
+      .hljs-built_in, .hljs-symbol { color: ${isDarkTheme ? "#ffa657" : "#e36209"}; }
+      .hljs-comment, .hljs-code, .hljs-formula { color: ${isDarkTheme ? "#8b949e" : "#6a737d"}; }
+      .hljs-name, .hljs-quote, .hljs-selector-tag, .hljs-selector-pseudo { color: ${isDarkTheme ? "#7ee787" : "#22863a"}; }
+      .hljs-subst { color: ${isDarkTheme ? "#c9d1d9" : "#24292e"}; }
+      .hljs-section { color: ${isDarkTheme ? "#1f6feb" : "#005cc5"}; font-weight: bold; }
+      .hljs-bullet { color: ${isDarkTheme ? "#79c0ff" : "#005cc5"}; }
+      .hljs-emphasis { font-style: italic; }
+      .hljs-strong { font-weight: bold; }
+      .hljs-addition { color: ${isDarkTheme ? "#aff5b4" : "#22863a"}; background-color: ${isDarkTheme ? "#033a16" : "#f0fff4"}; }
+      .hljs-deletion { color: ${isDarkTheme ? "#ffdcd7" : "#b31d28"}; background-color: ${isDarkTheme ? "#67060c" : "#ffeef0"}; }
+
       @media (max-width: 767px) {
           .markdown-body {
               padding: 15px;
