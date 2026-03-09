@@ -494,6 +494,7 @@ a:focus {
 .stats-container {
   font-size: 0.9rem;
   color: var(--text-color);
+  margin-left: 10px;
 }
 
 .stat-item {
