@@ -2419,4 +2419,110 @@ This is a fully client-side application. Your content never leaves your browser 
       container.appendChild(toolbar);
     });
   }
+
+  // ========================================
+  // FLOATING SELECTION TOOLBAR
+  // ========================================
+  const floatingToolbar = document.getElementById('floating-toolbar');
+  const floatingButtons = document.querySelectorAll('.floating-tool-btn');
+
+  const showFloatingToolbar = (x, y) => {
+    floatingToolbar.style.display = 'flex';
+    floatingToolbar.style.left = `${x}px`;
+    floatingToolbar.style.top = `${y - 50}px`; // Show 50px above cursor
+    setTimeout(() => {
+        floatingToolbar.classList.add('active');
+    }, 10);
+  };
+
+  const hideFloatingToolbar = () => {
+    floatingToolbar.classList.remove('active');
+    setTimeout(() => {
+        if (!floatingToolbar.classList.contains('active')) {
+            floatingToolbar.style.display = 'none';
+        }
+    }, 200);
+  };
+
+  const wrapSelection = (prefix, suffix = '') => {
+    const start = markdownEditor.selectionStart;
+    const end = markdownEditor.selectionEnd;
+    const text = markdownEditor.value;
+    const selection = text.substring(start, end);
+    
+    const newContent = text.substring(0, start) + prefix + selection + suffix + text.substring(end);
+    markdownEditor.value = newContent;
+    
+    // Restore selection
+    markdownEditor.selectionStart = start + prefix.length;
+    markdownEditor.selectionEnd = end + prefix.length;
+    
+    markdownEditor.focus();
+    debouncedRender();
+    saveCurrentTabState();
+  };
+
+  const applyFormat = (format) => {
+    const start = markdownEditor.selectionStart;
+    const end = markdownEditor.selectionEnd;
+    if (start === end) return;
+
+    switch (format) {
+        case 'bold': wrapSelection('**', '**'); break;
+        case 'italic': wrapSelection('*', '*'); break;
+        case 'strikethrough': wrapSelection('~~', '~~'); break;
+        case 'h1': wrapSelection('# '); break;
+        case 'h2': wrapSelection('## '); break;
+        case 'h3': wrapSelection('### '); break;
+        case 'quote': wrapSelection('> '); break;
+        case 'code': wrapSelection('`', '`'); break;
+        case 'link': wrapSelection('[', '](url)'); break;
+        case 'list-ul':
+            const linesUl = markdownEditor.value.substring(start, end).split('\n');
+            const formattedUl = linesUl.map(line => `* ${line}`).join('\n');
+            markdownEditor.value = markdownEditor.value.substring(0, start) + formattedUl + markdownEditor.value.substring(end);
+            break;
+        case 'list-ol':
+            const linesOl = markdownEditor.value.substring(start, end).split('\n');
+            const formattedOl = linesOl.map((line, i) => `${i+1}. ${line}`).join('\n');
+            markdownEditor.value = markdownEditor.value.substring(0, start) + formattedOl + markdownEditor.value.substring(end);
+            break;
+    }
+    
+    hideFloatingToolbar();
+  };
+
+  markdownEditor.addEventListener('mouseup', function(e) {
+    const start = this.selectionStart;
+    const end = this.selectionEnd;
+    
+    if (start !== end) {
+        // Show toolbar near the mouseup coordinates
+        showFloatingToolbar(e.clientX, e.clientY);
+    } else {
+        hideFloatingToolbar();
+    }
+  });
+
+  // Also hide on click outside or when typing
+  document.addEventListener('mousedown', function(e) {
+    if (!floatingToolbar.contains(e.target) && e.target !== markdownEditor) {
+        hideFloatingToolbar();
+    }
+  });
+
+  markdownEditor.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        hideFloatingToolbar();
+    }
+  });
+
+  floatingButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const format = btn.getAttribute('data-format');
+        applyFormat(format);
+    });
+  });
 });

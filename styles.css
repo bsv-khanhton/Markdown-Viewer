@@ -1546,3 +1546,76 @@ a:focus {
   border-color: var(--accent-color);
 }
 
+/* Floating Editor Toolbar Styles */
+.floating-toolbar {
+  position: fixed;
+  z-index: 2000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(225, 228, 232, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: all;
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+}
+
+[data-theme="dark"] .floating-toolbar {
+  background: rgba(22, 27, 34, 0.85);
+  border-color: rgba(48, 54, 61, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.floating-toolbar.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.floating-tool-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.floating-tool-btn:hover {
+  background: var(--button-hover);
+  color: var(--accent-color);
+}
+
+.floating-tool-btn:active {
+  background: var(--button-active);
+  transform: scale(0.9);
+}
+
+.floating-toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-color);
+  margin: 0 4px;
+}
+
+/* Animation for the toolbar */
+@keyframes toolbarPopIn {
+  0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.floating-toolbar.active {
+  animation: toolbarPopIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
