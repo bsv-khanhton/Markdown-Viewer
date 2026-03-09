@@ -1,6 +1,6 @@
 # Configuration
 
-This page documents all configuration files and customizable settings in **Markdown Viewer**.
+This page documents all configuration files and customizable settings in **Markdown Editor**.
 
 ---
 
@@ -137,7 +137,7 @@ Located at `desktop-app/neutralino.config.json`.
     "filesystem.*"
   ],
   "window": {
-    "title": "Markdown Viewer",
+    "title": "Markdown Editor",
     "width": 800,
     "minWidth": 600,
     "height": 500,

@@ -1,6 +1,6 @@
 # Installation
 
-This page describes every way to install and run **Markdown Viewer**.
+This page describes every way to install and run **Markdown Editor**.
 
 ---
 
@@ -16,7 +16,7 @@ This page describes every way to install and run **Markdown Viewer**.
 
 ## Option 1 — Docker (Recommended)
 
-The easiest way to run Markdown Viewer is with a single Docker command. The pre-built image is available from the **GitHub Container Registry (GHCR)**.
+The easiest way to run Markdown Editor is with a single Docker command. The pre-built image is available from the **GitHub Container Registry (GHCR)**.
 
 ```bash
 docker run -d \
@@ -112,7 +112,7 @@ Open the project folder in VS Code and click **Go Live** in the status bar.
 
 ## Option 4 — Desktop Application
 
-Markdown Viewer is also available as a cross-platform native desktop application powered by [Neutralinojs](https://neutralino.js.org/).
+Markdown Editor is also available as a cross-platform native desktop application powered by [Neutralinojs](https://neutralino.js.org/).
 
 ### Download a Pre-Built Binary
 

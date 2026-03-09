@@ -1,6 +1,6 @@
 # Docker Deployment
 
-This page covers all Docker-based deployment options for **Markdown Viewer**.
+This page covers all Docker-based deployment options for **Markdown Editor**.
 
 ---
 
@@ -197,7 +197,7 @@ docker pull ghcr.io/thisis-developer/markdown-viewer:latest
 
 ## Reverse Proxy Setup
 
-To run Markdown Viewer behind a reverse proxy (Nginx, Caddy, Traefik, Apache), proxy requests to the container's port 80.
+To run Markdown Editor behind a reverse proxy (Nginx, Caddy, Traefik, Apache), proxy requests to the container's port 80.
 
 ### Nginx Reverse Proxy
 

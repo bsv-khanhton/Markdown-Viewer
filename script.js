@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer: renderer,
   });
 
-  const sampleMarkdown = `# Welcome to Markdown Viewer
+  const sampleMarkdown = `# Welcome to Markdown Editor
 
 ## ✨ Key Features
 - **Live Preview** with GitHub styling
@@ -187,7 +187,7 @@ sequenceDiagram
 
 ## 🆚 Feature Comparison
 
-| Feature                  | Markdown Viewer (Ours) | Other Markdown Editors  |
+| Feature                  | Markdown Editor (Ours) | Other Markdown Editors  |
 |:-------------------------|:----------------------:|:-----------------------:|
 | Live Preview             | ✅ GitHub-Styled       | ✅                     |
 | Sync Scrolling           | ✅ Two-way             | 🔄 Partial/None        |
@@ -203,7 +203,7 @@ sequenceDiagram
       <th colspan="2">Support</th>
     </tr>
     <tr>
-      <th>Markdown Viewer (Ours)</th>
+      <th>Markdown Editor (Ours)</th>
       <th>Other Markdown Editors</th>
     </tr>
   </thead>

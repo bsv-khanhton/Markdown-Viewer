@@ -1,7 +1,7 @@
-# Markdown Viewer
+# Markdown Editor
 
 <div align="center">
-    <img src="assets/icon.jpg" alt="Markdown Viewer Logo" width="150px"/>
+    <img src="assets/icon.jpg" alt="Markdown Editor Logo" width="150px"/>
     <h3>A powerful GitHub-style Markdown rendering tool</h3>
     <p>Fast, secure, and feature-rich - all running in your browser</p>
     <a href="https://markdownviewer.pages.dev/">Live Demo</a> • 
@@ -13,7 +13,7 @@
 
 ## 🚀 Overview
 
-Markdown Viewer is a professional, full-featured Markdown editor and preview application that runs entirely in your browser. It provides a GitHub-style rendering experience with a clean split-screen interface, allowing you to write Markdown on one side and instantly preview the formatted output on the other.
+Markdown Editor is a professional, full-featured Markdown editor and preview application that runs entirely in your browser. It provides a GitHub-style rendering experience with a clean split-screen interface, allowing you to write Markdown on one side and instantly preview the formatted output on the other.
 
 ## ✨ Features
 
@@ -122,7 +122,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Development Journey
 
-The Markdown Viewer has undergone significant evolution since its inception. What started as a simple markdown parser has grown into a full-featured, professional application with multiple advanced capabilities. By comparing the [current version](https://markdownviewer.pages.dev/) with the [original version](https://a1b91221.markdownviewer.pages.dev/), you can see the remarkable progress in UI design, performance optimization, and feature implementation.
+The Markdown Editor has undergone significant evolution since its inception. What started as a simple markdown parser has grown into a full-featured, professional application with multiple advanced capabilities. By comparing the [current version](https://markdownviewer.pages.dev/) with the [original version](https://a1b91221.markdownviewer.pages.dev/), you can see the remarkable progress in UI design, performance optimization, and feature implementation.
 
 ---
 

@@ -1,6 +1,6 @@
 # Features
 
-A detailed reference for every feature supported by **Markdown Viewer**.
+A detailed reference for every feature supported by **Markdown Editor**.
 
 ---
 
@@ -37,7 +37,7 @@ The editor and preview panes update simultaneously as you type. There is no "ref
 
 ## GitHub-Style Rendering
 
-Markdown Viewer implements the **GitHub Flavored Markdown (GFM)** specification:
+Markdown Editor implements the **GitHub Flavored Markdown (GFM)** specification:
 
 - Strikethrough (`~~text~~`)
 - Tables
@@ -140,7 +140,7 @@ Diagrams also support **pan** by clicking and dragging.
 
 ## Dark / Light Theme
 
-Markdown Viewer uses **CSS custom properties** (CSS variables) for theming, enabling instant zero-flicker theme switching. Both themes are carefully tuned for comfortable reading and editing.
+Markdown Editor uses **CSS custom properties** (CSS variables) for theming, enabling instant zero-flicker theme switching. Both themes are carefully tuned for comfortable reading and editing.
 
 - The selected theme is persisted to `localStorage`.
 - On first visit, the theme defaults to the system preference (`prefers-color-scheme`).

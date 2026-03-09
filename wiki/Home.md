@@ -1,10 +1,10 @@
-# Markdown Viewer Wiki
+# Markdown Editor Wiki
 
-Welcome to the **Markdown Viewer** wiki — your comprehensive reference for installation, configuration, and usage of the Markdown Viewer application.
+Welcome to the **Markdown Editor** wiki — your comprehensive reference for installation, configuration, and usage of the Markdown Editor application.
 
-## What is Markdown Viewer?
+## What is Markdown Editor?
 
-Markdown Viewer is a **professional, feature-rich, GitHub-style Markdown editor and live-preview application** that runs entirely in the browser. It provides real-time rendering, syntax highlighting, LaTeX math support, Mermaid diagrams, and much more — all without requiring any server-side processing, sign-up, or data uploads.
+Markdown Editor is a **professional, feature-rich, GitHub-style Markdown editor and live-preview application** that runs entirely in the browser. It provides real-time rendering, syntax highlighting, LaTeX math support, Mermaid diagrams, and much more — all without requiring any server-side processing, sign-up, or data uploads.
 
 > **Privacy First**: All content is processed locally in your browser. Nothing you type is ever sent to a server.
 

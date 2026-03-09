@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to **Markdown Viewer**! All contributions — bug reports, feature requests, documentation improvements, and code changes — are welcome.
+Thank you for your interest in contributing to **Markdown Editor**! All contributions — bug reports, feature requests, documentation improvements, and code changes — are welcome.
 
 ---
 

@@ -1,30 +1,30 @@
 # FAQ
 
-Frequently asked questions about **Markdown Viewer**.
+Frequently asked questions about **Markdown Editor**.
 
 ---
 
 ## General
 
-### What is Markdown Viewer?
+### What is Markdown Editor?
 
-Markdown Viewer is a free, open-source, GitHub-style Markdown editor and live-preview application that runs entirely in the browser. It lets you write Markdown and see the rendered output side by side in real-time, with support for syntax highlighting, LaTeX math, Mermaid diagrams, and more.
+Markdown Editor is a free, open-source, GitHub-style Markdown editor and live-preview application that runs entirely in the browser. It lets you write Markdown and see the rendered output side by side in real-time, with support for syntax highlighting, LaTeX math, Mermaid diagrams, and more.
 
 ### Is it free to use?
 
-Yes. Markdown Viewer is completely free and open-source under the [Apache 2.0 License](https://github.com/ThisIs-Developer/Markdown-Viewer/blob/main/LICENSE).
+Yes. Markdown Editor is completely free and open-source under the [Apache 2.0 License](https://github.com/ThisIs-Developer/Markdown-Viewer/blob/main/LICENSE).
 
 ### Do I need to create an account?
 
 No. The application requires no sign-up, registration, or login.
 
-### Does Markdown Viewer send my content to a server?
+### Does Markdown Editor send my content to a server?
 
 No. All processing is done **entirely in your browser**. No text you type is ever transmitted to any server. Your content stays on your device.
 
 ### Which browsers are supported?
 
-Markdown Viewer works in all modern browsers:
+Markdown Editor works in all modern browsers:
 - Chrome / Chromium 90+
 - Firefox 90+
 - Edge 90+
@@ -36,11 +36,11 @@ Markdown Viewer works in all modern browsers:
 
 ### Does it support GitHub Flavored Markdown (GFM)?
 
-Yes. Markdown Viewer implements the full [GitHub Flavored Markdown](https://github.github.com/gfm/) specification, including tables, task lists, strikethrough, and autolinks.
+Yes. Markdown Editor implements the full [GitHub Flavored Markdown](https://github.github.com/gfm/) specification, including tables, task lists, strikethrough, and autolinks.
 
 ### Can I render mathematical equations?
 
-Yes. Markdown Viewer supports LaTeX math via **MathJax**:
+Yes. Markdown Editor supports LaTeX math via **MathJax**:
 - **Inline math**: `$E = mc^2$`
 - **Block/display math**: `$$\int_0^\infty e^{-x} dx = 1$$`
 
@@ -48,7 +48,7 @@ See the [Markdown Reference — Math](Markdown-Reference#math-latex) section for
 
 ### Can I render diagrams?
 
-Yes. Markdown Viewer supports **Mermaid** diagrams using fenced code blocks with the `mermaid` language identifier. Supported diagram types include flowcharts, sequence diagrams, Gantt charts, class diagrams, entity-relationship diagrams, and more.
+Yes. Markdown Editor supports **Mermaid** diagrams using fenced code blocks with the `mermaid` language identifier. Supported diagram types include flowcharts, sequence diagrams, Gantt charts, class diagrams, entity-relationship diagrams, and more.
 
 See the [Features — Mermaid Diagrams](Features#mermaid-diagrams) section for details.
 
@@ -72,7 +72,7 @@ Yes. Click the **Share** button in the toolbar. Your content is compressed and e
 
 ## Installation & Deployment
 
-### How do I run Markdown Viewer locally?
+### How do I run Markdown Editor locally?
 
 The quickest options are:
 

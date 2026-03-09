@@ -1,6 +1,6 @@
 # Desktop App
 
-This page covers the **Neutralinojs desktop application** port of Markdown Viewer — a lightweight, cross-platform native app built from the same source code as the web version.
+This page covers the **Neutralinojs desktop application** port of Markdown Editor — a lightweight, cross-platform native app built from the same source code as the web version.
 
 ---
 

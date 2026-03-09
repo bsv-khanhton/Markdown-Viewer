@@ -1,6 +1,6 @@
 # Usage Guide
 
-This page explains how to use every feature of **Markdown Viewer** once it is running.
+This page explains how to use every feature of **Markdown Editor** once it is running.
 
 ---
 
