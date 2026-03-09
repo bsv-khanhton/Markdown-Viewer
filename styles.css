@@ -1190,7 +1190,7 @@ a:focus {
   background-color: var(--header-bg);
   border-bottom: 1px solid var(--border-color);
   height: 36px;
-  overflow: hidden;
+  overflow: visible;  /* ← was: overflow: hidden */
   flex-shrink: 0;
   padding: 0 4px;
   gap: 0;
@@ -1201,10 +1201,10 @@ a:focus {
   display: flex;
   align-items: flex-end;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;  /* ← was: overflow-y: hidden */
   flex: 1;
   height: 100%;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
